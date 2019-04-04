@@ -1,4 +1,33 @@
-- hosts: workstation
+---
+- name: create instance
+  hosts: workstation
+  gather_facts: false
   become: yes
-  roles:
-    - osp-servers
+  tasks:
+  - name: Create app1
+    include_role:
+      name: roles/osp-servers
+      vars_from: app1
+    tags:
+      - create_apps
+  
+  - name: Create app2
+    include_role:
+      name: roles/osp-servers
+      vars_from: app2
+    tags:
+      - create_apps
+
+  - name: Create frontend
+    include_role:
+      name: roles/osp-servers
+      vars_from: frontend
+    tags:
+      - create_lb
+
+  - name: Create db
+    include_role:
+      name: roles/osp-server
+      vars_from: db
+    tags:
+      - create_db
