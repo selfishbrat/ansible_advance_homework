@@ -1,2 +1,2 @@
 [jumpbox]
-workstation-{{ OSP_GUID }}.rhpds.opentlc.com
+workstation-"{{ OSP_GUID }}".rhpds.opentlc.com
