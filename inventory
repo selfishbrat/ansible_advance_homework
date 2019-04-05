@@ -1,2 +1,0 @@
-[jumpbox]
-workstation-"{{ OSP_GUID }}".rhpds.opentlc.com
